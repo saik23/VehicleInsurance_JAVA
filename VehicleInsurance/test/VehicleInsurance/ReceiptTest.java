@@ -1,20 +1,65 @@
 package VehicleInsurance;
 
-public class ReceiptTest {
-    Receipt receipt;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-    void setup(){
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Test class for the receipt class.
+ */
+class ReceiptTest {
+
+    Receipt testReceipt;
+
+    /**
+     * Instantiates a receipt object for all the other tests to use.
+     */
+    @BeforeEach
+    void setUp() {
+        testReceipt = new Receipt(1, 2, "Insurance Company",
+                "Michael Scott", "10-12-2022 09:10:11", 100.0);
     }
 
-    // Unit test for each function
-    public void testGetReceiptID(){
+    @Test
+    void getDateTime() {
+        assertEquals(testReceipt.getDateTime(), "10-12-2022 09:10:11");
     }
-    public void testGetPaymentID(){
+
+    @Test
+    void getPayee() {
+        assertEquals(testReceipt.getPayee(), "Insurance Company");
     }
-    public void testGetPayer(){
+
+    @Test
+    void getPayer() {
+        assertEquals(testReceipt.getPayer(), "Michael Scott");
     }
-    public void testGetPayee(){
+
+    @Test
+    void getPaymentID() {
+        assertEquals(testReceipt.getPaymentID(), 2);
     }
-    public void testDateTime(){
+
+    @Test
+    void getReceiptID() {
+        assertEquals(testReceipt.getReceiptID(), 1);
+    }
+
+    @Test
+    void getAmountPaid() {
+        assertEquals(testReceipt.getAmountPaid(), 100.0);
+    }
+
+    @Test
+    void testToString() {
+        assertEquals(testReceipt.toString(), String.format("""
+        ReceiptID: %d
+        PaymentID: %d
+        amount: %f
+        Paid By: %s
+        Paid To: %s
+        Date Time: %s
+        """, 1, 2, 100.0, "Michael Scott", "Insurance Company", "10-12-2022 09:10:11"));
     }
 }

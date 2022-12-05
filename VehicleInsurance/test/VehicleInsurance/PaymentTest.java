@@ -1,19 +1,60 @@
 package VehicleInsurance;
 
-public class PaymentTest {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-    Payment payment;
+import static org.junit.jupiter.api.Assertions.*;
 
-    void setup(){
+/**
+ * Test class for the Payment class.
+ */
+class PaymentTest {
+
+    Payment testPayment;// = new Payment();
+
+    /**
+     * Sets up a payment object for further tests.
+     */
+    @BeforeEach
+    void setUp() {
+        testPayment = new Payment("Michael Scott", 1, 2,
+                100.0, "10-12-2022 09:10:11");
     }
 
-    // Unit test for each function
-    public void testPremiumAmount(){
+    @Test
+    void getPremiumAmount() {
+        assertEquals(testPayment.getPremiumAmount(), 100.0);
     }
-    public void testDateTime(){
+
+    @Test
+    void getDateTime() {
+        assertEquals(testPayment.getDateTime(), "10-12-2022 09:10:11");
     }
-    public void testGetPaymentID(){
+
+    @Test
+    void getPaymentID() {
+        assertEquals(testPayment.getPaymentID(), 1);
     }
-    public void testGetPlanID(){
+
+    @Test
+    void getPlanID() {
+        assertEquals(testPayment.getPlanID(), 2);
+    }
+
+    @Test
+    void getCustomerName() {
+        assertEquals(testPayment.getCustomerName(), "Michael Scott");
+    }
+
+    @Test
+    void testToString() {
+        assertEquals(testPayment.toString(), String.format("""
+                paymentID: %d
+                premium: %f
+                planID: %d
+                customer Name: %s,
+                date and time: %s
+                """, 1, 100.0, 2,
+                "Michael Scott", "10-12-2022 09:10:11"));
     }
 }
