@@ -12,6 +12,10 @@
 - src/VehicleInsurance/InsuranceCompany.java
 - Run the above file and the prompts will direct the rest of the implementation. 
 
+## Tests:
+- Each class is tested thoroughly using unit tests and functionality across multiple classes.
+- Controller tests run through predefined input strings instead of user input.
+
 ## MVC:
 - This project uses the MVC design principle.
 - View: A simple class to show the basic interface and print outputs/prompts to screen.
