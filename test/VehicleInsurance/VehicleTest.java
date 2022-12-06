@@ -55,7 +55,7 @@ class VehicleTest {
         assertArrayEquals(testVehicle.getDamagedInventory().toArray(), expected.toArray());
 
         testVehicle.updateInventory("Left Light");
-        assertEquals(testVehicle.getDamagedInventory().toArray()[0], "Left Light");
+        assertEquals(testVehicle.getDamagedInventory().toArray()[0], "Right Wheel");
     }
 
     /**
