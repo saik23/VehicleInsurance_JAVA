@@ -18,3 +18,5 @@
 - Model: Each entity from the design has a separate class to promote Single Task design principle.
 - Controller: A basic controller using Command Design Pattern to improve the separation between tasks.
 
+## Design:
+![ClassDiagram](VehicleInsurance_ClassDiagram.png)
